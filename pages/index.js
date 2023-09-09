@@ -20,8 +20,6 @@ export default function Home() {
           overwrite: "auto",
           stagger: 0.035,
         });
-      }else{
-        gsap.fromTo(rollRef.current,{y:80,},{y:-80, repeat:-1,duration:1,ease:'none', overwrite: "auto",yoyo:true})
       }
      
     }

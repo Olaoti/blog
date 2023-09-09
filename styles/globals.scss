@@ -113,8 +113,12 @@ h1,h2,h4,h5{
 }
 @media screen and (max-width:1000px) {
   .roll{
-    top: 20rem;
-    left: 10px;
+    top: 10rem;
+    left: -8rem;
+    width: 10rem;
+    height: 10rem;
+    webkit-filter: blur(6rem);
+    filter: blur(6rem);
   }
 }
 @import "./styles/navbar.scss";
