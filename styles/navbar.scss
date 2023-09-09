@@ -1,0 +1,84 @@
+.navbar{
+    color: white;
+    background-color: rgb(27,27,27);
+    display: flex;
+    text-transform: uppercase;
+    padding:1rem 4rem;
+    font-weight: 400;
+    .mobile-nav{
+        display: flex;
+        margin-right: auto;
+        position: relative;
+    }
+    .nav-links{
+        display: flex;
+        align-items:center ;
+        gap: 2rem;
+    }
+    h4{
+        font-weight: 300;
+        font-size: 1.8rem;
+        letter-spacing: 1.5px;
+    }
+    h5{
+        font-size: 1rem;
+        font-weight: 300;
+        letter-spacing: 1.2px;
+    }
+    .stick{
+        background-color: #c5a179;
+        position: absolute;
+        width: 4rem;
+        height: 4px;
+        top: 0;
+    }
+}
+@media screen and (max-width:550px) {
+    .navbar{
+        padding: .8rem 2.4rem;
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        .mobile-nav{
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 0;
+            .hamburger{
+                height: .6rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                span{
+                    display: block;
+                    width: 1.5rem;
+                    height: 1.4px;
+                    background-color: white;
+                    transition: all 200ms ease-in-out;
+                }
+                &.cancel{
+                    justify-content: center;
+                    span{
+                        transform: rotate(45deg);
+                        &:last-child{
+                            transform: rotate(-45deg);
+                            margin-top: -1.4px;
+                        }
+                    }
+                }
+            }
+        }
+        .nav-links{
+            flex-direction: column;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height .55s ease;
+            h5{
+                margin-top: 1rem;
+            }
+            &.display{
+                max-height: 20rem;
+                transition: max-height .55s ease;
+            }
+        }
+    }
+}
