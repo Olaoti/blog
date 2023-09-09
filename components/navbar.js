@@ -1,8 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
+import { useRouter } from 'next/router'
 
 function navbar() {
+  const router = useRouter()
   const [show,setShow] = useState(false)
   const stickRef = useRef(null)
   useEffect(()=>{
@@ -12,7 +14,8 @@ function navbar() {
     <div className='navbar'> 
       <div className='mobile-nav'>
         <h4 className='myname'>
-              Omotola
+              <Link href="/">
+              Omotola</Link>
           </h4>
           <div className='stick' ref={stickRef}></div>
           <div className={`hamburger ${show?('cancel'):('show')}`} onClick={()=>{setShow(!show)}}>
@@ -22,14 +25,12 @@ function navbar() {
       </div>
       <div className={`nav-links ${show?('display'):('nodisplay')}`}>
         <Link href="/">
-          <h5>Home</h5>
+          <h5 className={router.pathname=="/"&&'active'}>Home</h5>
         </Link>
-        <Link href='/about' legacyBehavior>
-            <a>
-              <h5>About Me</h5></a>
+        <Link href='/about'>
+              <h5 className={router.pathname=="/about"&&'active'}>About Me</h5>
         </Link>
       </div>
-        
     </div>
   )
 }
